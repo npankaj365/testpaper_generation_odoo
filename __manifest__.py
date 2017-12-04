@@ -26,6 +26,8 @@
         # 'security/ir.model.access.csv',
         'views/assessment_views.xml',
         'views/test_creation_views.xml',
+        'views/lesson_views.xml',
+        'views/question_form.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode
