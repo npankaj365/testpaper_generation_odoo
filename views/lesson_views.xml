@@ -1,13 +1,51 @@
 <odoo>
     <data>
-        <record model="ir.actions.act_window" id="action_lesson_form">
-            <field name="name">Lessons</field>
-            <field name="res_model">assessment.lesson</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">kanban,tree,form</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">Click to add a Lesson</p>
+        <record model="ir.ui.view" id="action_lesson_kanban">
+            <field name="name">lesson.kanban</field>
+            <field name="model">assessment.lesson</field>
+            <field name="arch" type="xml">
+                <kanban class="oe_kanban_small_column">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click o_res_partner_kanban">
+                                <div class="oe_kanban_content">
+                                    <!-- title -->
+                                    Name:
+                                    <field name="name"/>
+                                    <br/>
+                                    Subdomain:
+                                    <field name="subdomain"/>
+                                    <br/>
+                                    Domain:
+                                    <field name="domain"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
             </field>
         </record>
+
+        <record model="ir.ui.view" id="lesson_form_view">
+            <field name="name">lesson.form</field>
+            <field name="model">assessment.lesson</field>
+            <field name="arch" type="xml">
+                <form string="Lesson Form">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="objective" />
+                            <field name="enabled"/>
+                        </group>
+                        <group>
+                            <field name="domain"/>
+                            <field name="subdomain"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
     </data>
 </odoo>

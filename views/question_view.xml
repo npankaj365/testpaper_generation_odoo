@@ -38,12 +38,12 @@
                                 <field name="enabled" />
                                 <field name="time_required" />
                             </group>
-                            <group>
+                            <!-- <group>
                                 <field name="domain" string="Domain" />
                                 <field name="subdomain" string="Subdomain" />
                                 <field name="lesson" string="Lesson" />
                                 <field name="objective" string="Objective" />
-                            </group>
+                            </group> -->
                         </group>
                     </sheet>
                 </form>

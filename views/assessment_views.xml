@@ -8,10 +8,10 @@
             view_mode="kanban,tree,form" />
 
         <act_window 
-            id="action_lesson_form"
+            id="action_lesson_kanban"
             name="Lessons"
             res_model="assessment.lesson" 
-            view_mode="tree" />
+            view_mode="kanban,form,tree" />
         
         <act_window 
             id="action_domain_form"
@@ -38,14 +38,14 @@
         <menuitem 
             name="Question Bank" 
             id="menu_question_bank" 
-            action="action_lesson_form" 
+            action="action_lesson_kanban" 
             parent="menu_assessments" 
             sequence="1"
         />
         <menuitem 
             name="Lessons" 
             id="menu_lesson_form" 
-            action="action_lesson_form" 
+            action="action_lesson_kanban" 
             parent="menu_question_bank" 
             sequence="1"
         />
