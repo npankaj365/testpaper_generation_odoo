@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+        <record id="view_form_question" model="ir.ui.view">
+            <field name="name">Add Questions</field>
+            <field name="model">assessment.question</field>
+            <field name="arch" type="xml">
+                <form string="Questions List" width="80%">
+                    <header>
+                    </header>
+                    <sheet>
+                        <div class="oe-title">
+                            <h1>Question</h1>
+                        </div>
+                        <div class="decoration-bf">
+                            <field name="statement" label="Statement" />
+                        </div>
+                        <div>    
+                            <field name="question_type" />
+                        </div>
+                        <sheet name="Choices">
+                            <div attrs="{'invisible':['|',('question_type','=','fa'),('question_type','=','num')]}">
+                                <h4>Answer</h4>
+                            </div>
+                            <group name="Choices" attrs="{'invisible':['|',('question_type','=','fa'),('question_type','=','num')]}">
+                                <group name="group-left">
+                                    <field name="answer_choice_a" string="Choice A"/>
+                                    <field name="answer_choice_b" string="Choice B"/>
+                                </group>
+                                <group name="group-right">
+                                    <field name="answer_choice_c" string="Choice C"/>
+                                    <field name="answer_choice_d" string="Choice D"/>
+                                </group>
+                            </group>
+                        </sheet>
+                        <group name="group-bottom">
+                            <group name="group-left">
+                                <field name="correct_choices" string="Correct Choice(s)" attrs="{'invisible': ['|',('question_type','=',False),('question_type','=','fa')]}" />
+                                <field name="enabled" />
+                                <field name="time_required" />
+                            </group>
+                            <group>
+                                <field name="domain" string="Domain" />
+                                <field name="subdomain" string="Subdomain" />
+                                <field name="lesson" string="Lesson" />
+                                <field name="objective" string="Objective" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
