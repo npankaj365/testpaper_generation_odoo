@@ -1,0 +1,50 @@
+<odoo>
+
+    <report
+        id="report_question"
+        model="assessment.question"
+        string="Question Bank"
+        name="assessment.report_question_view"
+        file="assessment.report_question"
+        report_type="qweb-html" />
+
+    <template id="report_question_view">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+            <div class="page" style="border-style: black; border-color:black;">
+                <div class="row" style="text-align:center;">
+                    <h1>Question Bank</h1>
+                </div>
+                <ol>
+                    <t t-foreach="docs" t-as="doc">
+                        <div style="padding:10px">
+                            <li><span t-field="doc.statement"></span></li>
+                            <!-- <h3>Question List:</h3> -->
+                            <!-- <ul>
+                                <t t-foreach="doc.statements" t-as="statement">
+                                    <li><span t-field="attendee.name"/></li>
+                                </t>
+                            </ul> -->
+                                <t t-if="doc.question_type">
+                                    <t t-if="doc.question_type=='mcsa' or doc.question_type=='mcma'">
+                                        <table style="width:90%;">
+                                            <tr>
+                                                <td><i class="fa fa-circle-o" style="width:2em"></i><span t-field="doc.answer_choice_a"></span></td>
+                                                <td><i class="fa fa-circle-o" style="width:2em"></i><span t-field="doc.answer_choice_b"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><i class="fa fa-circle-o" style="width:2em"></i><span t-field="doc.answer_choice_c"></span></td>
+                                                <td><i class="fa fa-circle-o" style="width:2em"></i><span t-field="doc.answer_choice_d"></span></td>
+                                            </tr>
+                                        </table>
+                                    </t>
+                                </t>
+                        </div>
+                    </t>
+                </ol>
+            </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="action_assessment_form">
+            <field name="name">Assessments</field>
+            <field name="res_model">assessment.test</field>
+            <!-- <field name="view_type">form</field> -->
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="help" type="html">
+                <!-- <button>Test</button> -->
+                <p class="oe_view_nocontent_create">Click to add a Test Paper</p>
+                <p>You can create Test Paper for student assessment or any other testing purposes.</p>
+                <p>Design easily your survey, send invitations to answer by email and analyse answers.</p>
+            </field>
+        </record>
+
+        
+<!--
+            <field name="arch" type="xml">
+                <form string="Questions List">
+                    <group>
+                        <field name="statement" />
+                        <field name="explanation" />
+                        <field name="question_type" />
+                        <field name="question_difficulty" />
+                    </group>
+                    <group name="Choices">
+                        <field name="choice1" />
+                        <field name="choice2" />
+                        <field name="choice3" />
+                        <field name="choice4" />
+                    </group>
+                    <group>
+                        <field name="correct_choice" />
+                        <field name="enabled" />
+                        <field name="time_required" />
+                        <field name="domain" />
+                        <field name="subdomain" />
+                        <field name="lesson" />
+                        <field name="objective" />
+                    </group>
+                </form>
+            </field>
+        </record>
+    -->
+    </data>
+</odoo>
