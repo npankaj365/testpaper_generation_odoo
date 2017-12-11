@@ -15,6 +15,7 @@
                         <group>
                             <field name="domain"/>
                             <field name="subdomain"/>
+                            <field name="lesson"/>
                         </group>
                     </sheet>
                 </form>

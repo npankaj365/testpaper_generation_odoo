@@ -1,16 +1,35 @@
 <odoo>
     <data>
-        <record model="ir.actions.act_window" id="action_assessment_form">
-            <field name="name">Assessments</field>
-            <field name="res_model">assessment.test</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">kanban,tree,form</field>
-            <field name="help" type="html">
-                <p class="oe_view_nocontent_create">Click to add a Test Paper</p>
-                <p>You can create Test Paper for student assessment or any other testing purposes.</p>
-                <p>Design easily your survey, send invitations to answer by email and analyse answers.</p>
-            </field>
 
+        <record model="ir.ui.view" id="test_form_view">
+            <field name="name">test.form</field>
+            <field name="model">assessment.test</field>
+            <field name="arch" type="xml">
+                <form string="Test Creation Form">
+                    <header>
+                        <button type="object" class="btn btn-success" name="generate" string="Generate" />
+                        <button type="object" class="btn btn-warning" name="clear" string="Clear" />
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="title"/>
+                            <field name="subtext"/>
+                        </group>
+                        <tree>
+                                <field name="test_section"/>
+                        </tree>
+                        
+                        <!-- <group>
+                            <field name="domain"/>
+                            <field name="subdomain"/>
+                            <field name="lesson"/>
+                        </group> -->
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+<!--
             <field name="arch" type="xml">
                 <form string="Questions List">
                     <group>
@@ -37,5 +56,6 @@
                 </form>
             </field>
         </record>
+    -->
     </data>
 </odoo>

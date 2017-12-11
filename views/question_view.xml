@@ -1,10 +1,22 @@
 <odoo>
     <data>
+        <record model="ir.ui.view" id="view_question_list">
+            <field name="name">question.list</field>
+            <field name="model">assessment.question</field>
+            <field name="arch" type="xml">
+                <tree string="Lesson Form" class="oe_clickable">
+                    <field name="statement" />
+                    <field name="question_type" />
+                    <field name="lesson" />
+                </tree>
+            </field>
+        </record>
+
         <record id="view_form_question" model="ir.ui.view">
             <field name="name">Add Questions</field>
             <field name="model">assessment.question</field>
             <field name="arch" type="xml">
-                <form string="Questions List" width="80%">
+                <form string="Questions Creation" width="80%">
                     <header>
                     </header>
                     <sheet>
@@ -38,12 +50,12 @@
                                 <field name="enabled" />
                                 <field name="time_required" />
                             </group>
-                            <!-- <group>
+                            <group>
                                 <field name="domain" string="Domain" />
                                 <field name="subdomain" string="Subdomain" />
                                 <field name="lesson" string="Lesson" />
                                 <field name="objective" string="Objective" />
-                            </group> -->
+                            </group>
                         </group>
                     </sheet>
                 </form>

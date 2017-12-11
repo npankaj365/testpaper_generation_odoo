@@ -30,6 +30,8 @@
         'views/objective_views.xml',
         'views/question_view.xml',
         'views/templates.xml',
+        'reports/question_bank.xml',
+        'reports/question_paper.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

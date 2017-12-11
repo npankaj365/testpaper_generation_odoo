@@ -1,6 +1,6 @@
 <odoo>
     <data>
-        <record model="ir.ui.view" id="action_lesson_kanban">
+        <record model="ir.ui.view" id="view_lesson_kanban">
             <field name="name">lesson.kanban</field>
             <field name="model">assessment.lesson</field>
             <field name="arch" type="xml">
@@ -35,7 +35,7 @@
                         <group>
                             <field name="name"/>
                             <field name="description"/>
-                            <field name="objective" />
+                            <field name="objective"/>
                             <field name="enabled"/>
                         </group>
                         <group>
