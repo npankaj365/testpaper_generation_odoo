@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_rubric_tree">
+            <field name="name">rubric.list</field>
+            <field name="model">assessment.rubric</field>
+            <field name="view-mode">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Rubric">
+                    <field name="lesson" />
+                </tree>
+            </field>
+        </record>
+    
+        <record model="ir.ui.view" id="view_rubric_form">
+            <field name="name">rubric.form</field>
+            <field name="model">assessment.rubric</field>
+            <field name="view-mode">form</field>
+            <field name="arch" type="xml">
+                <form string="Lesson Rubric">
+                    <header>
+                    </header>
+                    <!-- <sheet> -->
+                        <group>
+                            <field name="lesson" />
+                        </group>
+                        <sheet>
+                            <div class="oe_title">
+                            </div>
+                            <notebook>
+                                <page string="objective_rubric">
+                                    <field name="objective">
+                                        <tree string="Tree String">
+                                            <field name="grade_a"/>
+                                            <field name="grade_b"/>
+                                            <field name="grade_c"/>
+                                        </tree>
+                                    </field>
+                                </page>
+                            </notebook>
+                        </sheet>
+
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

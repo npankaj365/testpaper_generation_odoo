@@ -11,7 +11,7 @@
             id="action_lesson_kanban"
             name="Lessons"
             res_model="assessment.lesson" 
-            view_mode="kanban,form,tree" />
+            view_mode="kanban,tree,form" />
         
         <act_window 
             id="action_domain_form"
@@ -25,6 +25,11 @@
             res_model="assessment.question" 
             view_mode="tree" />
 
+        <!-- <act_window 
+            id="action_rubric_list"
+            name="Rubrics"
+            res_model="assessment.rubric" 
+            view_mode="tree,form" /> -->
 
         <menuitem 
             name="Assessments" 
@@ -86,18 +91,18 @@
             sequence="2"
         />
         <!-- <menuitem 
+            name="Rubrics" 
+            id="menu_rubric_list" 
+            action="action_rubric_list" 
+            parent="menu_assessments_configuration" 
+            sequence="3"
+        /> -->
+        <!-- <menuitem 
             name="Sub Domains" 
             id="menu_subdomain_form" 
             action="action_subdomain_form" 
             parent="menu_assessments_configuration" 
             sequence="2"
         /> -->
-        <menuitem 
-            name="Settings" 
-            id="menu_settings_form" 
-            action="action_domain_form" 
-            parent="menu_assessments_configuration" 
-            sequence="3"
-        />
     </data>
 </odoo>

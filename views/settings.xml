@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="settings_view">
+            <field name="name">settings.form</field>
+            <field name="model">assessment.settings</field>
+            <field name="arch" type="xml">
+                <form string="Settings">
+                    <sheet>
+                        <field name="subtext" />
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

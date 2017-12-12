@@ -1,5 +1,15 @@
 <odoo>
     <data>
+        <record model="ir.ui.view" id="lesson_search_view">
+            <field name="name">lesson.search</field>
+            <field name="model">assessment.lesson</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="name"/>
+                    <field name="description"/>
+                </search>
+            </field>
+        </record>
         <record model="ir.ui.view" id="lesson_form_view">
             <field name="name">lesson.form</field>
             <field name="model">assessment.lesson</field>
@@ -13,9 +23,23 @@
                             <field name="enabled"/>
                         </group>
                         <group>
-                            <field name="domain"/>
-                            <field name="subdomain"/>
+                            <group name="group-left">
+                            <field name="domain" string="Domain" />
+                            </group>
+                            <group name="group-right">
+                            <field name="subdomain" string="Sub Domain" />
+                            </group>
                         </group>
+                        <field name="rubric" string="Rubric">
+                            <tree string="Tree String" editable="True">
+                                <field name="objective"/>
+                                <field name="grade_a"/>
+                                <field name="grade_b"/>
+                                <field name="grade_c"/>
+                                <field name="grade_d"/>
+                                <field name="grade_e"/>
+                            </tree>
+                        </field>
                     </sheet>
                 </form>
             </field>

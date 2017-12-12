@@ -13,7 +13,7 @@
                     <sheet>
                         <group>
                             <field name="title" string="Title"/>
-                            <field name="subtext" readonly="True" />
+                            <field name="subtext" string="Header" />
                         </group>
                         <group>
                             <tree string="Test Paper Sections">
@@ -30,7 +30,7 @@
             <field name="model">assessment.testsection</field>
             <field name="arch" type="xml">
                 <tree string="Test Paper Sections">
-                    <field name="title" class="col-xs-6"/>
+                    <field name="title"/>
                     <field name="no_of_question" string="# of Questions"/>
                     <field name="duration" string="Duration"/>
                 </tree>

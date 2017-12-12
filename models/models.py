@@ -38,6 +38,7 @@ class Lesson(models.Model):
     domain = fields.Many2one('assessment.domain', 'domain')
     subdomain = fields.Many2one('assessment.subdomain', 'subdomain', domain="[('domain','=',domain)]")
     objective = fields.One2many('assessment.objective', 'lesson')
+    rubric = fields.One2many('assessment.rubric', 'lesson')
 
 class Objective(models.Model):
     '''Class for the Learning Objectives to be kept in the Question Bank'''
@@ -83,10 +84,11 @@ class Question(models.Model):
 class Rubric(models.Model):
     '''Class for the Rubrics to be kept in the Question Bank'''
     _name = 'assessment.rubric'
-    _rec_name = 'title'
+    # _rec_name = 'title'
 
-    title = fields.Char()
-    objective = fields.One2many('assessment.objective', 'rubric')
+    # title = fields.Char()
+    lesson = fields.Many2one('assessment.lesson', 'Lesson')
+    objective = fields.Many2one('assessment.objective', 'Objective')
     grade_a = fields.Char()
     grade_b = fields.Char()
     grade_c = fields.Char()
@@ -158,5 +160,4 @@ class Test(models.Model):
             _logger.debug(section.title)
             _logger.debug("The questions are ")
             _logger.debug(section.gen_question_list)
-
             section.gen_question_list.clear()

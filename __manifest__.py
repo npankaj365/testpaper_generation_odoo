@@ -30,6 +30,7 @@
         'views/objective_views.xml',
         'views/question_view.xml',
         'views/templates.xml',
+        # 'views/rubric_view.xml',
         'reports/question_bank.xml',
         'reports/question_paper.xml',
     ],
