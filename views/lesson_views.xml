@@ -1,31 +1,5 @@
 <odoo>
     <data>
-        <record model="ir.ui.view" id="view_lesson_kanban">
-            <field name="name">lesson.kanban</field>
-            <field name="model">assessment.lesson</field>
-            <field name="arch" type="xml">
-                <kanban class="oe_kanban_small_column">
-                    <templates>
-                        <t t-name="kanban-box">
-                            <div class="oe_kanban_global_click o_res_partner_kanban">
-                                <div class="oe_kanban_content">
-                                    <!-- title -->
-                                    Name:
-                                    <field name="name"/>
-                                    <br/>
-                                    Subdomain:
-                                    <field name="subdomain"/>
-                                    <br/>
-                                    Domain:
-                                    <field name="domain"/>
-                                </div>
-                            </div>
-                        </t>
-                    </templates>
-                </kanban>
-            </field>
-        </record>
-
         <record model="ir.ui.view" id="lesson_form_view">
             <field name="name">lesson.form</field>
             <field name="model">assessment.lesson</field>

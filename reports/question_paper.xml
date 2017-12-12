@@ -19,11 +19,6 @@
                             <div class="row" style="text-align:center;">
                                 <h3><span t-field="section.title"></span></h3>
                             </div>
-
-                            <!-- <t t-foreach="section.gen_question_list" t-as="question">
-                                <span t-field="question.statement"></span>
-                            </t> -->
-
                             <div>
                                 <ol>
                                     <t t-foreach="section.gen_question_list.keys()" t-as="question">
@@ -31,14 +26,14 @@
                                         <li><span t-field="question.statement"></span></li>
                                         
                                             <t t-if="question.question_type=='mcsa' or question.question_type=='mcma'">
-                                                <table width="80%" border="1">
+                                                <table width="80%" >
                                                     <tr>
-                                                        <td><span t-field="question.answer_choice_a"></span></td>
-                                                        <td><span t-field="question.answer_choice_b"></span></td>
+                                                        <td><i class="fa fa-circle-o" style="width:2em"></i><span t-field="question.answer_choice_a"></span></td>
+                                                        <td><i class="fa fa-circle-o" style="width:2em"></i><span t-field="question.answer_choice_b"></span></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><span t-field="question.answer_choice_c"></span></td>
-                                                        <td><span t-field="question.answer_choice_d"></span></td>
+                                                        <td><i class="fa fa-circle-o" style="width:2em"></i><span t-field="question.answer_choice_c"></span></td>
+                                                        <td><i class="fa fa-circle-o" style="width:2em"></i><span t-field="question.answer_choice_d"></span></td>
                                                     </tr>
                                                 </table>
                                             </t>

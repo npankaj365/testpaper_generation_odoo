@@ -97,7 +97,7 @@ class TestSection(models.Model):
     _name = 'assessment.testsection'
     _rec_name = 'title'
     title = fields.Char()
-    lesson = fields.Many2one('assessment.lesson', 'lesson', required=True)
+    lesson = fields.Many2many('assessment.lesson', 'lesson', required=True)
     question_type = fields.Selection(
         [
             ('mcsa','Multiple Choice Single Answer'), 
@@ -107,6 +107,8 @@ class TestSection(models.Model):
         ], required=True, default='mcsa'
     )
     test = fields.Many2one('assessment.test', 'test')
+    duration = fields.Integer(string="Test Section Duration")
+    no_of_question = fields.Integer(string="No. of Questions")
     gen_question_list = {}
 
 class Test(models.Model):
@@ -132,9 +134,6 @@ class Test(models.Model):
                             section.gen_question_list[question] = section.title
                             _logger.debug("-----------Question matches the Question Type-------------")
                             _logger.debug(question.statement)
-        
-        # self.gen_question_list = question_list
-                # _logger.debug(section.title)
 
         '''
         for objective in lesson.objective:
@@ -154,11 +153,10 @@ class Test(models.Model):
                 question_list.remove(selection)
 '''
     def clear(self):
-        
         for section in self.test_section:
             _logger.debug("The section title is ")
             _logger.debug(section.title)
             _logger.debug("The questions are ")
             _logger.debug(section.gen_question_list)
 
-            del(section.gen_question_list[:])
+            section.gen_question_list.clear()

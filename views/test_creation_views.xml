@@ -12,18 +12,56 @@
                     </header>
                     <sheet>
                         <group>
-                            <field name="title"/>
-                            <field name="subtext"/>
+                            <field name="title" string="Title"/>
+                            <field name="subtext" readonly="True" />
                         </group>
-                        <tree>
-                                <field name="test_section"/>
-                        </tree>
-                        
-                        <!-- <group>
-                            <field name="domain"/>
-                            <field name="subdomain"/>
+                        <group>
+                            <tree string="Test Paper Sections">
+                                    <field name="test_section"/>
+                            </tree>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="test_section_tree">
+            <field name="name">testsection.tree</field>
+            <field name="model">assessment.testsection</field>
+            <field name="arch" type="xml">
+                <tree string="Test Paper Sections">
+                    <field name="title" class="col-xs-6"/>
+                    <field name="no_of_question" string="# of Questions"/>
+                    <field name="duration" string="Duration"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="test_section_form_view">
+            <field name="name">testsection.form</field>
+            <field name="model">assessment.testsection</field>
+            <field name="arch" type="xml">
+                <form string="Test Paper Section">
+                    <header>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="title"/>
+                        </group>
+                        <group>
                             <field name="lesson"/>
-                        </group> -->
+                        </group>
+                        <group>
+                            <field name="question_type"/>
+                        </group>
+                        <group>
+                            <group name="group-right">
+                                <field name="duration"/>
+                            </group>
+                            <group name="group-left">
+                                <field name="no_of_question"/>
+                            </group>
+                        </group>
                     </sheet>
                 </form>
             </field>
