@@ -107,39 +107,32 @@ class TestSection(models.Model):
         ], required=True, default='mcsa'
     )
     test = fields.Many2one('assessment.test', 'test')
+    gen_question_list = {}
 
 class Test(models.Model):
     _name = 'assessment.test'
     _rec_name = 'title'
     title = fields.Char(string="Section")
     subtext = fields.Html(string="Header Content")
-    test_section = fields.One2many('assessment.testsection','test')
-    gen_question_list = []
-
+    test_section = fields.One2many('assessment.testsection', 'test')
 
     @api.multi
     def generate(self):
         _logger.debug("Generate Clicked")
-        question_list = []
         #Get all questions that satisfy the question_type
         for section in self.test_section:
-            self.gen_question_list.append(section.title)
-            _logger.debug("--This is Section--------------------------")
-            _logger.debug(type(section))
+            _logger.debug("-----------------------This is Section--------------------------")
             _logger.debug(section.title)
-
+            # section.gen_question_list = []
             for lesson in section.lesson:
-                # question_list.append(lesson.name)
-                _logger.debug("--This is Lesson--------------------------")
-                _logger.debug(lesson.name)
                 for objective in lesson.objective:
-                    _logger.debug(objective.name)
                     for question in objective.question:
-                        _logger.debug(question.statement)
-                        self.gen_question_list.append(question)
-
-        _logger.debug("This is the format ---------------------")
-        _logger.debug(self.gen_question_list)
+                        if (question.question_type == section.question_type):
+                            # section.gen_question_list.append(question)
+                            section.gen_question_list[question] = section.title
+                            _logger.debug("-----------Question matches the Question Type-------------")
+                            _logger.debug(question.statement)
+        
         # self.gen_question_list = question_list
                 # _logger.debug(section.title)
 
@@ -162,6 +155,10 @@ class Test(models.Model):
 '''
     def clear(self):
         
-        for q in self.gen_question_list:
-            _logger.debug("Check check check")
-        #del(self.selected_questions_list[:])
+        for section in self.test_section:
+            _logger.debug("The section title is ")
+            _logger.debug(section.title)
+            _logger.debug("The questions are ")
+            _logger.debug(section.gen_question_list)
+
+            del(section.gen_question_list[:])

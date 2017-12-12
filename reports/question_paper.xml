@@ -13,18 +13,39 @@
             <t t-call="web.internal_layout">
             <t t-foreach="docs" t-as="doc">
                 <div class="page" style="border-style: black; border-color:black;">
-                    <t t-foreach="doc.gen_question_list" t-as="question_item">
-                        <div class="row" style="text-align:center;">
-                            <ol>
-                                <t t-if="question_item">
-                                    <t t-if="type(question_item)=='str'">
-                                        <span t-field="question_item"></span>
+                    <div t-field="doc.subtext"></div>
+                    <t t-foreach="doc.test_section" t-as="section">
+                        <div class="row">
+                            <div class="row" style="text-align:center;">
+                                <h3><span t-field="section.title"></span></h3>
+                            </div>
+
+                            <!-- <t t-foreach="section.gen_question_list" t-as="question">
+                                <span t-field="question.statement"></span>
+                            </t> -->
+
+                            <div>
+                                <ol>
+                                    <t t-foreach="section.gen_question_list.keys()" t-as="question">
+                                        <t t-if="section.gen_question_list[question]==section.title">
+                                        <li><span t-field="question.statement"></span></li>
+                                        
+                                            <t t-if="question.question_type=='mcsa' or question.question_type=='mcma'">
+                                                <table width="80%" border="1">
+                                                    <tr>
+                                                        <td><span t-field="question.answer_choice_a"></span></td>
+                                                        <td><span t-field="question.answer_choice_b"></span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><span t-field="question.answer_choice_c"></span></td>
+                                                        <td><span t-field="question.answer_choice_d"></span></td>
+                                                    </tr>
+                                                </table>
+                                            </t>
+                                        </t>
                                     </t>
-                                    <t t-if="not type(question_item)=='str'">
-                                        <li><span t-field="question_item.statement"></span></li>
-                                    </t>
-                                </t>
-                            </ol>
+                                </ol>
+                            </div> 
                         </div>
                     </t>
                 </div>
