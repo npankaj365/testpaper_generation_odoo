@@ -88,7 +88,7 @@ class Rubric(models.Model):
 
     # title = fields.Char()
     lesson = fields.Many2one('assessment.lesson', 'Lesson')
-    objective = fields.Many2one('assessment.objective', 'Objective')
+    objective = fields.Many2one('assessment.objective', 'Objective', required=True)
     grade_a = fields.Char()
     grade_b = fields.Char()
     grade_c = fields.Char()
@@ -122,42 +122,18 @@ class Test(models.Model):
 
     @api.multi
     def generate(self):
-        _logger.debug("Generate Clicked")
-        #Get all questions that satisfy the question_type
         for section in self.test_section:
-            _logger.debug("-----------------------This is Section--------------------------")
-            _logger.debug(section.title)
-            # section.gen_question_list = []
+            time_left = section.duration
             for lesson in section.lesson:
                 for objective in lesson.objective:
                     for question in objective.question:
-                        if (question.question_type == section.question_type):
-                            # section.gen_question_list.append(question)
+                        if (question.question_type == section.question_type and time_left > question.time_required):
                             section.gen_question_list[question] = section.title
-                            _logger.debug("-----------Question matches the Question Type-------------")
-                            _logger.debug(question.statement)
+                            time_left -= question.time_required
+            keys = list(section.gen_question_list.keys())
+            random.shuffle(keys)
+            section.gen_question_list = [(key, section.gen_question_list[key]) for key in keys]
 
-        '''
-        for objective in lesson.objective:
-            for question in objective.question:
-                if (question.question_type == self.question_type):
-                    question_list.append(question) #Creating Dictionary with Question Statements and Answer Choices
-
-        duration = self.test_duration
-        #Generate randomized list
-        while(duration > 0):
-            gen = int(random.random()*len(question_list))
-            selection = question_list[gen]
-
-            if (selection.time_required <= duration):
-                self.selected_questions_list.append(selection)
-                duration -= selection.time_required
-                question_list.remove(selection)
-'''
     def clear(self):
         for section in self.test_section:
-            _logger.debug("The section title is ")
-            _logger.debug(section.title)
-            _logger.debug("The questions are ")
-            _logger.debug(section.gen_question_list)
             section.gen_question_list.clear()

@@ -12,7 +12,7 @@
         <t t-call="web.html_container">
             <t t-call="web.internal_layout">
             <t t-foreach="docs" t-as="doc">
-                <div class="page" style="border-style: black; border-color:black;">
+                <div class="page container" style="border-style: black; border-color:black;">
                     <div t-field="doc.subtext"></div>
                     <t t-foreach="doc.test_section" t-as="section">
                         <div class="row">
@@ -44,6 +44,65 @@
                         </div>
                     </t>
                 </div>
+            </t>
+            </t>
+        </t>
+    </template>
+
+    <!--Rubric Print-->
+    <report
+        id="report_rubric_paper"
+        model="assessment.test"
+        string="Rubric"
+        name="assessment.report_rubric_view"
+        file="assessment.report_rubric_paper"
+        report_type="qweb-html" />
+
+    <template id="report_rubric_view">
+        <t t-call="web.html_container">
+            <t t-call="web.internal_layout">
+            <t t-foreach="docs" t-as="doc">
+            <div class="page" style="border-style: black; border-color:black;">
+                    <div t-field="doc.subtext"></div>
+                    <t t-foreach="doc.test_section" t-as="section">
+                        <div class="row">
+                            <style>
+                                <!-- table { 
+                                    border-spacing: 3px;
+                                    border-collapse: separate;
+                                } -->
+                                td { 
+                                    padding: 3px;
+                                }
+                                th {
+                                    font-weight: bold;
+                                }
+                            </style>
+                            <h4 align="center" class="display-4">Rubric for <span t-field="section.title"></span></h4>
+                            <table align="center" class="table table-striped table-bordered">
+                                <tr>
+                                    <th>Objective</th>
+                                    <th>Grade A</th>
+                                    <th>Grade B</th>
+                                    <th>Grade C</th>
+                                    <th>Grade D</th>
+                                    <th>Grade E</th>
+                                </tr>
+                                <t t-foreach="section.lesson" t-as="lesson">
+                                    <tr>
+                                        <td><span t-field="lesson.rubric.objective"></span></td>
+                                        <td><span t-field="lesson.rubric.grade_a"></span></td>
+                                        <td><span t-field="lesson.rubric.grade_b"></span></td>
+                                        <td><span t-field="lesson.rubric.grade_c"></span></td>
+                                        <td><span t-field="lesson.rubric.grade_d"></span></td>
+                                        <td><span t-field="lesson.rubric.grade_e"></span></td>
+                                    </tr>
+                                </t>
+                            </table>
+                        </div>
+                    </t>
+
+            </div>
             </t>
             </t>
         </t>

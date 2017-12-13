@@ -26,6 +26,8 @@
         # 'security/ir.model.access.csv',
         'views/assessment_views.xml',
         'views/test_creation_views.xml',
+        'views/domain_view.xml',
+        'views/subdomain_view.xml',
         'views/lesson_views.xml',
         'views/objective_views.xml',
         'views/question_view.xml',

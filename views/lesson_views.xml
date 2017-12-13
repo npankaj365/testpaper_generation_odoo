@@ -15,32 +15,40 @@
             <field name="model">assessment.lesson</field>
             <field name="arch" type="xml">
                 <form string="Lesson Form">
-                    <sheet>
-                        <group>
-                            <field name="name"/>
-                            <field name="description"/>
-                            <field name="objective"/>
-                            <field name="enabled"/>
-                        </group>
-                        <group>
-                            <group name="group-left">
-                            <field name="domain" string="Domain" />
+                    <notebook>
+                        <page string="Lesson">
+                            <group>
+                                <field name="name"/>
+                                <field name="description"/>
+                                <field name="enabled"/>
                             </group>
-                            <group name="group-right">
-                            <field name="subdomain" string="Sub Domain" />
+                        </page>
+                        <page string="Objective">
+                            <group>
+                                <group name="group-left">
+                                <field name="domain" string="Domain" />
+                                </group>
+                                <group name="group-right">
+                                <field name="subdomain" string="Sub Domain" />
+                                </group>
                             </group>
-                        </group>
-                        <field name="rubric" string="Rubric">
-                            <tree string="Tree String" editable="True">
+                            <group>
                                 <field name="objective"/>
-                                <field name="grade_a"/>
-                                <field name="grade_b"/>
-                                <field name="grade_c"/>
-                                <field name="grade_d"/>
-                                <field name="grade_e"/>
-                            </tree>
-                        </field>
-                    </sheet>
+                            </group>
+                        </page>
+                        <page string="Rubric">
+                            <field name="rubric" string="Rubric">
+                                <tree string="Tree String" editable="True">
+                                    <field name="objective"/>
+                                    <field name="grade_a"/>
+                                    <field name="grade_b"/>
+                                    <field name="grade_c"/>
+                                    <field name="grade_d"/>
+                                    <field name="grade_e"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
                 </form>
             </field>
         </record>

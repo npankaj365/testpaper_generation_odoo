@@ -4,7 +4,7 @@
             <field name="name">question.list</field>
             <field name="model">assessment.question</field>
             <field name="arch" type="xml">
-                <tree string="Lesson Form" class="oe_clickable">
+                <tree string="Question List" class="oe_clickable">
                     <field name="statement" />
                     <field name="question_type" />
                     <field name="lesson" />

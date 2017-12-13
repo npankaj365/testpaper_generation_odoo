@@ -25,12 +25,6 @@
             res_model="assessment.question" 
             view_mode="tree" />
 
-        <!-- <act_window 
-            id="action_rubric_list"
-            name="Rubrics"
-            res_model="assessment.rubric" 
-            view_mode="tree,form" /> -->
-
         <menuitem 
             name="Assessments" 
             id="menu_assessments" 
