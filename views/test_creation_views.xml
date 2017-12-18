@@ -12,7 +12,17 @@
                     <sheet>
                         <group>
                             <field name="title" string="Title"/>
+                        </group>
+                        <group>
                             <field name="subtext" string="Header" />
+                        </group>
+                        <group>
+                            <group>
+                                <field name="level" string="Level" widget="selection" />
+                            </group>
+                            <group>
+                                <field name="generate_method" widget="selection" />
+                            </group>
                         </group>
                         <group>
                             <tree string="Test Paper Sections">
@@ -58,7 +68,7 @@
                                 <field name="duration"/>
                             </group>
                             <group name="group-left">
-                                <field name="no_of_question"/>
+                                <field name="weightage"/>
                             </group>
                         </group>
                     </sheet>

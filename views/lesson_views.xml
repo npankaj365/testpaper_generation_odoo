@@ -26,10 +26,10 @@
                         <page string="Objective">
                             <group>
                                 <group name="group-left">
-                                <field name="domain" string="Domain" />
+                                    <field name="domain" string="Domain" widget="selection"/>
                                 </group>
                                 <group name="group-right">
-                                <field name="subdomain" string="Sub Domain" />
+                                    <field name="subdomain" string="Sub Domain" widget="selection"/>
                                 </group>
                             </group>
                             <group>

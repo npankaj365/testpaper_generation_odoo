@@ -44,17 +44,21 @@
                                 </group>
                             </group>
                         </sheet>
+                        <group>
+                            <field name="correct_choices" string="Correct Choice(s)" attrs="{'invisible': ['|',('question_type','=',False),('question_type','=','fa')]}" />
+                        </group>
                         <group name="group-bottom">
                             <group name="group-left">
-                                <field name="correct_choices" string="Correct Choice(s)" attrs="{'invisible': ['|',('question_type','=',False),('question_type','=','fa')]}" />
                                 <field name="enabled" />
-                                <field name="time_required" />
+                                <field name="level" string="Level" widget="selection"/>
+                                <field name="weightage"/>
+                                <field name="time_required"/>
                             </group>
-                            <group>
-                                <field name="domain" string="Domain" />
-                                <field name="subdomain" string="Subdomain" />
-                                <field name="lesson" string="Lesson" />
-                                <field name="objective" string="Objective" />
+                            <group name="group-right">
+                                <field name="domain" string="Domain" widget="selection"/>
+                                <field name="subdomain" string="Subdomain" widget="selection"/>
+                                <field name="lesson" string="Lesson" widget="selection"/>
+                                <field name="objective" string="Objective" widget="selection"/>
                             </group>
                         </group>
                     </sheet>

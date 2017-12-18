@@ -23,7 +23,13 @@
             id="action_question_list"
             name="Questions List"
             res_model="assessment.question" 
-            view_mode="tree" />
+            view_mode="tree,form" />
+
+        <act_window 
+            id="action_level_list"
+            name="Levels List"
+            res_model="assessment.level" 
+            view_mode="tree,form" />
 
         <menuitem 
             name="Assessments" 
@@ -83,6 +89,13 @@
             action="action_question_list" 
             parent="menu_assessments_configuration" 
             sequence="2"
+        />
+        <menuitem 
+            name="Levels" 
+            id="menu_level_list" 
+            action="action_level_list" 
+            parent="menu_assessments_configuration" 
+            sequence="3"
         />
         <!-- <menuitem 
             name="Rubrics" 

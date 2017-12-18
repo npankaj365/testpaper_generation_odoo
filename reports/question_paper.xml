@@ -67,10 +67,6 @@
                     <t t-foreach="doc.test_section" t-as="section">
                         <div class="row">
                             <style>
-                                <!-- table { 
-                                    border-spacing: 3px;
-                                    border-collapse: separate;
-                                } -->
                                 td { 
                                     padding: 3px;
                                 }
