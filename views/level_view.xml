@@ -1,0 +1,26 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="level_tree_view">
+            <field name="name">level.tree</field>
+            <field name="model">assessment.level</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Levels">
+                    <field name="level"/>
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="level_form_view">
+            <field name="name">level.form</field>
+            <field name="model">assessment.level</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Level Form">
+                    <group>
+                        <field name="level"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>
